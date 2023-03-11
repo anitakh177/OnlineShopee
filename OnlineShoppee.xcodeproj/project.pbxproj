@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0853819829BC450D00FF816B /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0853819729BC450D00FF816B /* SessionManager.swift */; };
+		0853819C29BC489700FF816B /* MainAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0853819B29BC489700FF816B /* MainAppView.swift */; };
+		0853819E29BC4AF400FF816B /* RegistrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0853819D29BC4AF400FF816B /* RegistrationManager.swift */; };
+		085381A029BC744D00FF816B /* SecureTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0853819F29BC744D00FF816B /* SecureTextFieldView.swift */; };
+		085381A329BC776600FF816B /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085381A229BC776600FF816B /* EmailValidator.swift */; };
+		08ED26E229BB08E900EF047D /* OnlineShoppeeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ED26E129BB08E900EF047D /* OnlineShoppeeApp.swift */; };
+		08ED26E429BB08E900EF047D /* ProfileMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ED26E329BB08E900EF047D /* ProfileMainView.swift */; };
+		08ED26E629BB08EB00EF047D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08ED26E529BB08EB00EF047D /* Assets.xcassets */; };
+		08ED26E929BB08EB00EF047D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08ED26E829BB08EB00EF047D /* Preview Assets.xcassets */; };
+		08ED26F029BB252B00EF047D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ED26EF29BB252B00EF047D /* Colors.swift */; };
+		08ED26F229BB28F300EF047D /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ED26F129BB28F300EF047D /* ListItem.swift */; };
+		08ED276829BB409300EF047D /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08ED275129BB409300EF047D /* Montserrat-VariableFont_wght.ttf */; };
+		08ED278029BB677A00EF047D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ED277F29BB677A00EF047D /* LoginView.swift */; };
+		08ED278429BB6D3100EF047D /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ED278329BB6D3100EF047D /* ButtonView.swift */; };
+		08ED278629BB6D4E00EF047D /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ED278529BB6D4E00EF047D /* TextFieldView.swift */; };
+		08ED278A29BB6F6100EF047D /* SigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ED278929BB6F6100EF047D /* SigninView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0853819729BC450D00FF816B /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		0853819B29BC489700FF816B /* MainAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppView.swift; sourceTree = "<group>"; };
+		0853819D29BC4AF400FF816B /* RegistrationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationManager.swift; sourceTree = "<group>"; };
+		0853819F29BC744D00FF816B /* SecureTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTextFieldView.swift; sourceTree = "<group>"; };
+		085381A229BC776600FF816B /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
+		08ED26DE29BB08E900EF047D /* OnlineShoppee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlineShoppee.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		08ED26E129BB08E900EF047D /* OnlineShoppeeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineShoppeeApp.swift; sourceTree = "<group>"; };
+		08ED26E329BB08E900EF047D /* ProfileMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainView.swift; sourceTree = "<group>"; };
+		08ED26E529BB08EB00EF047D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		08ED26E829BB08EB00EF047D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		08ED26EF29BB252B00EF047D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		08ED26F129BB28F300EF047D /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		08ED275129BB409300EF047D /* Montserrat-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		08ED277E29BB419E00EF047D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		08ED277F29BB677A00EF047D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		08ED278329BB6D3100EF047D /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		08ED278529BB6D4E00EF047D /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		08ED278929BB6F6100EF047D /* SigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		08ED26DB29BB08E900EF047D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0853819629BC44FA00FF816B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0853819729BC450D00FF816B /* SessionManager.swift */,
+				0853819D29BC4AF400FF816B /* RegistrationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		085381A129BC775700FF816B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				085381A229BC776600FF816B /* EmailValidator.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		08ED26D529BB08E900EF047D = {
+			isa = PBXGroup;
+			children = (
+				08ED26E029BB08E900EF047D /* OnlineShoppee */,
+				08ED26DF29BB08E900EF047D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		08ED26DF29BB08E900EF047D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				08ED26DE29BB08E900EF047D /* OnlineShoppee.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		08ED26E029BB08E900EF047D /* OnlineShoppee */ = {
+			isa = PBXGroup;
+			children = (
+				085381A129BC775700FF816B /* Extensions */,
+				08ED26F329BB400800EF047D /* Fonts */,
+				0853819629BC44FA00FF816B /* Managers */,
+				08ED278129BB6D1600EF047D /* ReusableViews */,
+				08ED277E29BB419E00EF047D /* Info.plist */,
+				08ED26E129BB08E900EF047D /* OnlineShoppeeApp.swift */,
+				0853819B29BC489700FF816B /* MainAppView.swift */,
+				08ED26E329BB08E900EF047D /* ProfileMainView.swift */,
+				08ED277F29BB677A00EF047D /* LoginView.swift */,
+				08ED278929BB6F6100EF047D /* SigninView.swift */,
+				08ED26F129BB28F300EF047D /* ListItem.swift */,
+				08ED26E529BB08EB00EF047D /* Assets.xcassets */,
+				08ED26E729BB08EB00EF047D /* Preview Content */,
+				08ED26EF29BB252B00EF047D /* Colors.swift */,
+			);
+			path = OnlineShoppee;
+			sourceTree = "<group>";
+		};
+		08ED26E729BB08EB00EF047D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				08ED26E829BB08EB00EF047D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		08ED26F329BB400800EF047D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				08ED275029BB409300EF047D /* Montserrat */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		08ED275029BB409300EF047D /* Montserrat */ = {
+			isa = PBXGroup;
+			children = (
+				08ED275129BB409300EF047D /* Montserrat-VariableFont_wght.ttf */,
+			);
+			path = Montserrat;
+			sourceTree = "<group>";
+		};
+		08ED278129BB6D1600EF047D /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				08ED278329BB6D3100EF047D /* ButtonView.swift */,
+				08ED278529BB6D4E00EF047D /* TextFieldView.swift */,
+				0853819F29BC744D00FF816B /* SecureTextFieldView.swift */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		08ED26DD29BB08E900EF047D /* OnlineShoppee */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08ED26EC29BB08EB00EF047D /* Build configuration list for PBXNativeTarget "OnlineShoppee" */;
+			buildPhases = (
+				08ED26DA29BB08E900EF047D /* Sources */,
+				08ED26DB29BB08E900EF047D /* Frameworks */,
+				08ED26DC29BB08E900EF047D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OnlineShoppee;
+			productName = OnlineShoppee;
+			productReference = 08ED26DE29BB08E900EF047D /* OnlineShoppee.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08ED26D629BB08E900EF047D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					08ED26DD29BB08E900EF047D = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 08ED26D929BB08E900EF047D /* Build configuration list for PBXProject "OnlineShoppee" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 08ED26D529BB08E900EF047D;
+			productRefGroup = 08ED26DF29BB08E900EF047D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				08ED26DD29BB08E900EF047D /* OnlineShoppee */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		08ED26DC29BB08E900EF047D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08ED26E929BB08EB00EF047D /* Preview Assets.xcassets in Resources */,
+				08ED276829BB409300EF047D /* Montserrat-VariableFont_wght.ttf in Resources */,
+				08ED26E629BB08EB00EF047D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		08ED26DA29BB08E900EF047D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08ED26F229BB28F300EF047D /* ListItem.swift in Sources */,
+				0853819C29BC489700FF816B /* MainAppView.swift in Sources */,
+				0853819E29BC4AF400FF816B /* RegistrationManager.swift in Sources */,
+				08ED278A29BB6F6100EF047D /* SigninView.swift in Sources */,
+				0853819829BC450D00FF816B /* SessionManager.swift in Sources */,
+				085381A329BC776600FF816B /* EmailValidator.swift in Sources */,
+				08ED278629BB6D4E00EF047D /* TextFieldView.swift in Sources */,
+				08ED26E429BB08E900EF047D /* ProfileMainView.swift in Sources */,
+				08ED278429BB6D3100EF047D /* ButtonView.swift in Sources */,
+				08ED26F029BB252B00EF047D /* Colors.swift in Sources */,
+				08ED278029BB677A00EF047D /* LoginView.swift in Sources */,
+				08ED26E229BB08E900EF047D /* OnlineShoppeeApp.swift in Sources */,
+				085381A029BC744D00FF816B /* SecureTextFieldView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		08ED26EA29BB08EB00EF047D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		08ED26EB29BB08EB00EF047D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		08ED26ED29BB08EB00EF047D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"OnlineShoppee/Preview Content\"";
+				DEVELOPMENT_TEAM = C5XCRHH65R;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OnlineShoppee/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anita.OnlineShoppee;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		08ED26EE29BB08EB00EF047D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"OnlineShoppee/Preview Content\"";
+				DEVELOPMENT_TEAM = C5XCRHH65R;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OnlineShoppee/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anita.OnlineShoppee;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		08ED26D929BB08E900EF047D /* Build configuration list for PBXProject "OnlineShoppee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08ED26EA29BB08EB00EF047D /* Debug */,
+				08ED26EB29BB08EB00EF047D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		08ED26EC29BB08EB00EF047D /* Build configuration list for PBXNativeTarget "OnlineShoppee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08ED26ED29BB08EB00EF047D /* Debug */,
+				08ED26EE29BB08EB00EF047D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08ED26D629BB08E900EF047D /* Project object */;
+}
