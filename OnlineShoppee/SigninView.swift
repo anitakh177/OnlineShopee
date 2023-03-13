@@ -9,13 +9,16 @@ import SwiftUI
 
 struct SigninView: View {
     @EnvironmentObject var session: SessionManager
-    
-    @State private var firstName: String = ""
-    @State private var lastName: String = ""
-    @State private var password: String = ""
-    
     @StateObject private var manager = RegistrationManager()
+   
+    @StateObject var userViewModel = UserStorage()
     
+    @State private var showPassword: Bool = false
+    @FocusState var inFocus: Field?
+
+    enum Field {
+        case secure, plain
+        }
     
     var body: some View {
         
@@ -29,14 +32,38 @@ struct SigninView: View {
                 TextFieldView(textProp: $manager.user.firstName, title: "First name")
                 TextFieldView(textProp: $manager.user.lastName, title: "Last name")
                 TextFieldView(textProp: $manager.user.email, title: "Email")
+                
+                ZStack(alignment: .trailing)
+                { if showPassword {
+                    TextFieldView(textProp: $manager.user.password, title: "Password")
+                        .focused($inFocus, equals: .plain)
+                } else {
+                    SecureTextFieldView(textProp: $manager.user.password, title: "Password")
+                        .focused($inFocus, equals: .secure)
+                }
+                    Button {
+                        self.showPassword.toggle()
+                        inFocus = showPassword ? .plain : .secure
+                    } label: {
+                        Image("security")
+                    }
+            
+                    .padding(.trailing, 15)
+                }
                 Button {
+                  
                     manager.validate()
-                    if !manager.hasError {
+                   userViewModel.validateUser(firstName: manager.user.email, password: manager.user.password)
+                    if !manager.hasError  && !userViewModel.hasError {
                         // TODO: Handle registration
+                        userViewModel.addUser(user: manager.user)
                         session.logIn()
                     }
+                    
                 } label: {
                     ButtonView(buttonText: "Sign in")
+                }
+                .alert(isPresented: $userViewModel.hasError, error: userViewModel.error) {
                 }
   
             }
@@ -62,9 +89,11 @@ struct SigninView: View {
 
             
         }
-        .alert(isPresented: $manager.hasError, error: manager.error) {
+       .alert(isPresented: $manager.hasError, error: manager.error) {
             
         }
+       
+        
     }
 }
 

@@ -8,10 +8,12 @@
 import Foundation
 
 final class RegistrationManager: ObservableObject {
-    @Published var user = User(firstName: "", lastName: "", email: "")
+    @Published var user = User(firstName: "", lastName: "", email: "", password: "")
     
     @Published var hasError = false
     @Published var error: RegistrationError?
+    
+ var userViewModel = UserStorage()
     
     // TODO: make validation private in separate function
     
@@ -55,17 +57,12 @@ final class RegistrationManager: ObservableObject {
         }
     }
     
+   
     
 }
 
-extension RegistrationManager {
-    struct User {
-        var firstName: String
-        var lastName: String
-        var email: String
-        
-    }
-}
+
+   
 
 extension RegistrationManager {
     
@@ -75,6 +72,7 @@ extension RegistrationManager {
         case emptyEmail
         case wrongEmailFormat
         case emptyAllFields
+        case userAlreadyExist
         
         var errorDescription: String? {
             switch self {
@@ -88,7 +86,10 @@ extension RegistrationManager {
                 return "‼️ Invalid Email"
             case .emptyAllFields:
                 return "⛔️ Fields are empty"
+            case .userAlreadyExist:
+                return "Yur profile already exist."
             }
+            
         }
     }
 }

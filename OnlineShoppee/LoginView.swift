@@ -15,6 +15,8 @@ struct LoginView: View {
     @State private var password: String = ""
     @State private var showPassword: Bool = false
     @FocusState var inFocus: Field?
+    
+    @StateObject var userViewModel = UserStorage()
 
             enum Field {
                 case secure, plain
@@ -47,7 +49,7 @@ struct LoginView: View {
                         } label: {
                             Image("security")
                         }
-                       // .frame(width: 15, height: 15)
+                
                         .padding(.trailing, 15)
                        
                     }
@@ -56,9 +58,15 @@ struct LoginView: View {
                 }
                 Spacer().frame(height: 60)
                 Button {
-                    withAnimation {
-                        session.logIn()
+                    userViewModel.userEmpty(firstName: firstName, password: password)
+                    if !userViewModel.hasError {
+                        withAnimation {
+                           
+                            session.logIn()
+                        }
                     }
+
+                   
                 } label: {
                     ButtonView(buttonText: "Login")
                 }
@@ -68,7 +76,9 @@ struct LoginView: View {
             }
         }
         
-       
+        .alert(isPresented: $userViewModel.hasError, error: userViewModel.error) {
+            
+        }
         
     }
 }

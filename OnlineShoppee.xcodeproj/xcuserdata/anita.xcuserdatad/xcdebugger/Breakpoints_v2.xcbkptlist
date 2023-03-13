@@ -20,5 +20,53 @@
             landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8998B23A-BB4A-4614-8842-3C8A26995F85"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnlineShoppee/Managers/UserStorage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "validateUser(firstName:password:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8998B23A-BB4A-4614-8842-3C8A26995F85 - 6d65fed73eead448"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnlineShoppee.UserStorage.validateUser(firstName: Swift.String, password: Swift.String) -&gt; ()"
+                  moduleName = "OnlineShoppee"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anita/Desktop/projects/Apps/OnlineShoppee/OnlineShoppee/Managers/UserStorage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "388">
+               </Location>
+               <Location
+                  uuid = "8998B23A-BB4A-4614-8842-3C8A26995F85 - b2a2d92bb2183289"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (OnlineShoppee.UserEntity) -&gt; Swift.Bool in OnlineShoppee.UserStorage.validateUser(firstName: Swift.String, password: Swift.String) -&gt; ()"
+                  moduleName = "OnlineShoppee"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anita/Desktop/projects/Apps/OnlineShoppee/OnlineShoppee/Managers/UserStorage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
