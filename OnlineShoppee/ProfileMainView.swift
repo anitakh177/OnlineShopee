@@ -14,13 +14,29 @@ struct ProfileView: View {
         NavigationView {
             VStack {
                 ProfileMainView()
-                    .frame(height: 204)
                 CollectionView(session: session)
+                Spacer()
             }
+            .background(Colors.backgroundColor)
+            .padding(.bottom, 40)
             .navigationTitle("Profile")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(Colors.backgroundColor, for: .navigationBar)
+            .toolbarBackground(.hidden, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        
+                    } label: {
+                        Image("arrow.left")
+                    }
+                    
+                }
+            }
+
             
         }
+    
     }
 }
 
@@ -51,24 +67,8 @@ struct ProfileMainView: View {
             
           
         }
-        
-    }
-}
-
-
-
-struct RoundView: View {
-    let image: String
-    var body: some View {
-        ZStack {
-            Image(image)
-                .resizable()
-                .frame(width: 22, height: 16)
-        }
-        .frame(width: 40, height: 40)
-        .background(Colors.lightGrayColor)
-        .clipShape(Circle())
-        
+        .padding(.vertical, 20)
+        .frame(height: 204)
         
     }
 }

@@ -14,7 +14,7 @@ struct OnlineShoppeeApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainAppView()
+           MainAppView()
                 .environmentObject(session)
            
         }

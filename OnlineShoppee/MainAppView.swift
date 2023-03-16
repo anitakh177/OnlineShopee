@@ -14,16 +14,16 @@ struct MainAppView: View {
     var body: some View {
         switch session.currentState {
         case .signUp:
-            SigninView()
+            SignUpView()
                 .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .opacity))
         case .loggedIn:
-            ProfileView()
+           AppTabBarView()
                 .transition(.opacity)
         case .logInView:
             LoginView()
                 .transition(.opacity)
         default:
-           SigninView()
+           SignUpView()
                 .transition(.opacity)
         }
     }
