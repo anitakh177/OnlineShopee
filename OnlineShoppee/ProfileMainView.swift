@@ -56,16 +56,17 @@ struct ProfileMainView: View {
                 .frame(width: 60, height: 60)
                 .cornerRadius(30)
             Text("Change Photo")
-                .font(.custom("Montserrat-VariableFont_wght", size: 10))
+                .font(.custom(.regular, size: 11))
                 .foregroundColor(Colors.grayColor)
             Spacer()
                 Text("Satria Adhi Pradana")
-                .font(.custom("Montserrat-VariableFont_wght", size: 23))
+                .font(.custom(.semibold, size: 18))
             Spacer()
-                ButtonView(buttonText: "Upload item")
-            
-            
-          
+            Button {
+                
+            } label: {
+                ButtonView(buttonText: "Upload item", imageIcon: true)
+            }
         }
         .padding(.vertical, 20)
         .frame(height: 204)
@@ -81,7 +82,7 @@ struct CellWithButton: View {
         HStack {
             RoundView(image: iconImage)
             Text(title)
-                .font(.title3)
+                .font(.custom(.medium, size: 16))
             Spacer()
             isWithButton ? Image("arrow") : nil
             
@@ -100,9 +101,10 @@ struct BalanceCell: View {
         HStack {
             RoundView(image: iconImage)
             Text(title)
-                .font(.title3)
+                .font(.custom(.medium, size: 16))
             Spacer()
            Text("$ 1593")
+                .font(.custom(.medium, size: 16))
             
         }
         .frame(height: 50)

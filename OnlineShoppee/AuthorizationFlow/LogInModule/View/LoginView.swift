@@ -58,7 +58,7 @@ struct LoginView: View {
                             logInViewModel.validateLogIn(session: session)
                         }
                 } label: {
-                    ButtonView(buttonText: "Login")
+                    ButtonView(buttonText: "Login", imageIcon: false)
                 }
                  Spacer()
             }

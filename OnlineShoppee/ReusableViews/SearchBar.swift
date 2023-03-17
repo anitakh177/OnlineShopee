@@ -17,7 +17,7 @@ struct SearchBar: View {
  
             TextField("What are you looking for?", text: $text)
                 .foregroundColor(.black)
-                .font(.system(size: 10))
+                .font(.custom(.regular, size: 10))
                 .padding(8)
                 .multilineTextAlignment(.center)
                 .background(Colors.searchBarColor)

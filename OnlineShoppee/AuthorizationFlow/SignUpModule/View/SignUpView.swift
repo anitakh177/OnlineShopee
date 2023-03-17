@@ -55,7 +55,7 @@ struct SignUpView: View {
                     }
                     
                 } label: {
-                    ButtonView(buttonText: "Sign in")
+                    ButtonView(buttonText: "Sign in", imageIcon: false)
                 }
                 .alert(isPresented: $signupViewModel.userStorage.hasError, error: signupViewModel.userStorage.error) {
                 }

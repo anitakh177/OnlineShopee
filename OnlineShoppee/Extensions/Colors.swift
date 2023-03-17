@@ -17,5 +17,8 @@ struct Colors {
     static let backgroundColor = Color(red: 250/255, green: 249/255, blue: 255/255)
     static let selectedTabBarTint = Color(red: 115/255, green: 114/255, blue: 151/255)
     static let defaultTabBarTint = Color(red: 144/255, green: 144/255, blue: 144/255)
+    static let lightBlueColor = Color(red: 229/255, green: 233/255, blue: 239/255)
+    static let violetColor = Color(red: 84/255, green: 85/255, blue: 137/255)
+    static let darkPurpleColor = Color(red: 24/255, green: 23/255, blue: 38/255)
 
 }

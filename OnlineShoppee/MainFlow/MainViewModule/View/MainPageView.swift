@@ -16,7 +16,7 @@ struct Box: Identifiable {
 
 
 
-struct MainView: View {
+struct MainPageView: View {
     @StateObject private var viewModel = MainPageViewModel()
     
     let box: [Box] = [
@@ -50,11 +50,13 @@ struct MainView: View {
                     } header: {
                         HStack {
                             Text("Latest")
+                                .font(.custom(.semibold, size: 16))     .foregroundColor(.black)
                             Spacer()
                             Button("View all") {
                                 
                             }
-                            .foregroundColor(.gray)
+                            .font(.custom(.medium, size: 11))
+                            .foregroundColor(Colors.grayColor)
                         }
                     }
 
@@ -66,11 +68,14 @@ struct MainView: View {
                     } header: {
                         HStack {
                             Text("Flash Sale")
+                                .font(.custom(.semibold, size: 16))     .foregroundColor(.black)
+
                             Spacer()
                             Button("View all") {
                                 
                             }
-                            .foregroundColor(.gray)
+                            .font(.custom(.medium, size: 11))
+                            .foregroundColor(Colors.grayColor)
                         }
                     }
                     
@@ -82,11 +87,14 @@ struct MainView: View {
                     } header: {
                         HStack {
                             Text("Brands")
+                                .font(.custom(.semibold, size: 16))     .foregroundColor(.black)
+
                             Spacer()
                             Button("View all") {
                                 
                             }
-                            .foregroundColor(.gray)
+                            .font(.custom(.medium, size: 11))
+                            .foregroundColor(Colors.grayColor)
                         }
                     }
 
@@ -118,8 +126,8 @@ struct MainView: View {
                                    
                                     HStack(spacing: 4){
                                         Text("Location")
-                                            .font(.system(size: 8))
-                                            .foregroundColor(.gray)
+                                            .font(.custom(.light, size: 8))
+                                            .foregroundColor(.black)
                                         Image("arrow.down")
                                     }
                                 
@@ -129,10 +137,11 @@ struct MainView: View {
                     }
             }
             }
-            
-            .padding(.bottom, 40)
             .padding(.horizontal, 11)
             .background(Colors.backgroundColor)
+            .padding(.bottom, 40)
+            .accentColor(.black)
+            
             
         }
         
@@ -141,7 +150,7 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainPageView()
     }
 }
 
@@ -153,7 +162,8 @@ struct CategoryView: View {
         VStack(spacing: 10) {
             RoundView(image: image)
             Text(title)
-                .font(.system(size: 10))
+                .font(.custom(.regular, size: 10))
+                .foregroundColor(Colors.grayColor)
                 .scaledToFit()
                 .minimumScaleFactor(0.7)
             
@@ -199,20 +209,18 @@ struct LatestItemsView: View {
                             .opacity(0.5)
                             .frame(width: 50)
                         Text(latest.category)
-                            .font(.system(size: 10, weight: .medium))
+                            .font(.custom(.semibold, size: 10))
                     }
                     Text(latest.name)
                         .foregroundColor(.white)
-                        .font(.system(size: 12, weight: .medium))
+                        .font(.custom(.bold, size: 12))
                         .lineLimit(2)
                     Text("$"+latest.price)
                         .foregroundColor(.white)
-                        .font(.system(size: 10, weight: .medium))
-                    
-                    
+                        .font(.custom(.bold, size: 10))
                 }
                 .frame(height: 52)
-            //.padding(EdgeInsets.init(top: 91, leading: 7, bottom: 7, trailing: -5))
+          
                 
                 Button {
                     
@@ -234,11 +242,16 @@ struct LatestCollectionView: View {
         ScrollView(.horizontal) {
             LazyHGrid(rows: [GridItem((.flexible()))], spacing: 12) {
                 ForEach(latestProducts) { item in
-                    LatestItemsView(latest: item)
+                    NavigationLink(destination: DetailPageView()) {
+                        LatestItemsView(latest: item)
+                    }
+                            
+                        
                 }
                 .frame(width: 114, height: 129)
             }
         }
+        .padding(.bottom, 40)
         .scrollIndicators(.hidden)
     }
 }
@@ -266,7 +279,7 @@ struct SaleItemView: View {
                             .frame(width: 50, height: 20)
                         Text(saleItem.discount+"%")
                             .foregroundColor(.white)
-                            .font(.system(size: 15, weight: .bold))
+                            .font(.custom(.bold, size: 15))
                     }
                 }
                 .padding(.horizontal, 7.5)
@@ -280,17 +293,15 @@ struct SaleItemView: View {
                                     .opacity(0.5)
                                     .frame(width: 50, height: 17)
                                 Text(saleItem.category)
-                                    .font(.system(size: 13, weight: .medium))
+                                    .font(.custom(.medium, size: 13))
                             }
                             Text(saleItem.name)
                                 .foregroundColor(.white)
-                                .font(.system(size: 16, weight: .bold))
+                                .font(.custom(.bold, size: 16))
                                 .lineLimit(2)
                             Text("$"+saleItem.price)
                                 .foregroundColor(.white)
-                                .font(.system(size: 13, weight: .medium))
-                            
-                        
+                                .font(.custom(.medium, size: 13))
                     }
                     .padding(.horizontal, 10)
                     
@@ -324,7 +335,10 @@ struct FlashSaleCollectionView: View {
         ScrollView(.horizontal) {
             LazyHGrid(rows: [GridItem(.flexible())]) {
                 ForEach(saleProducts) { item in
-                    SaleItemView(saleItem: item)
+                    NavigationLink(destination: DetailPageView()) {
+                        SaleItemView(saleItem: item)
+                    }
+                   
                     
                 }
             }

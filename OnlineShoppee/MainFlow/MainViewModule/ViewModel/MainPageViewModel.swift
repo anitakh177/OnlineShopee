@@ -7,6 +7,8 @@
 
 import Foundation
 import Combine
+import UIKit
+
 
 struct LatestProducts: Identifiable {
     let id = UUID()
@@ -36,10 +38,8 @@ final class MainPageViewModel: ObservableObject {
        
         fetchSaleItems()
         fetchLatestItems()
-       
-        
     
-    }
+        }
     
     func fetchSaleItems() {
         guard let url = URL(string: "https://run.mocky.io/v3/a9ceeb6e-416d-4352-bde6-2203416576ac") else { return }
@@ -48,7 +48,6 @@ final class MainPageViewModel: ObservableObject {
             .decode(type: FlashSaleModel.self, decoder: JSONDecoder())
             .sink(receiveCompletion: NetworkingManager.handleCompletion, receiveValue: { [weak self] returnedItems in
                 self?.saleItems = returnedItems
-                print(self?.saleProducts)
                 self?.mapFlashSaleItems()
                 self?.bag?.cancel()
             })
@@ -74,6 +73,7 @@ final class MainPageViewModel: ObservableObject {
     func mapFlashSaleItems() {
         saleProducts = saleItems.flashSale.compactMap({SaleProducts(name: $0.name, price: "\($0.price)", category: $0.category, image: $0.imageURL, discount: "\($0.discount)")})
     }
+    
 
     }
 
