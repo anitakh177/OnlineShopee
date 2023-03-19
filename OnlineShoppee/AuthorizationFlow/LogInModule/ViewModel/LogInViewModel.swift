@@ -5,16 +5,26 @@
 //  Created by anita on 3/13/23.
 //
 
-import Foundation
+import SwiftUI
+
+enum Field: Hashable {
+    case secure, plain
+}
 
 final class LogInViewModel: ObservableObject {
-    var userStorage = UserStorage()
+   
     var manager = RegistrationManager()
+    @Published var hasError: Bool = false
     
     func validateLogIn(session: SessionManager) {
-        userStorage.userEmpty(firstName: manager.user.firstName, password: manager.user.password)
-        if !userStorage.hasError {
+        manager.validateLogin()
+        
+        if !manager.hasError {
             session.logIn()
+            hasError = false
+        } else {
+            hasError = true
+        }
         }
     }
-}
+

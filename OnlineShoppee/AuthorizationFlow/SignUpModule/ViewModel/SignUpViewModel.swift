@@ -10,18 +10,18 @@ import Foundation
 
 final class SignUpViewModel: ObservableObject {
      var manager = RegistrationManager()
-     var userStorage = UserStorage()
-    @Published var hasError: Bool = false
+    @Published var hasErrorV: Bool = false
     
     
-    func validateSignUp() {
-        manager.validate()
-       userStorage.validateUser(firstName: manager.user.email, password: manager.user.password)
-        if !manager.hasError  && !userStorage.hasError {
+    func validateSignUp(session: SessionManager) {
+        manager.validateSignUp()
+        if !manager.hasError {
+            hasErrorV = false
             userStorage.addUser(user: manager.user)
-            hasError = false
+            session.logIn()
         } else {
-            hasError = true
+            hasErrorV = true
+            
         }
     }
     

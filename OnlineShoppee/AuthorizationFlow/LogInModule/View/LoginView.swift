@@ -11,12 +11,8 @@ struct LoginView: View {
     
     @EnvironmentObject var session: SessionManager
     @StateObject var logInViewModel = LogInViewModel()
-    @State private var showPassword: Bool = false
-    @FocusState var inFocus: Field?
     
-    enum Field {
-        case secure, plain
-    }
+    @FocusState var inFocus: Field?
 
     var body: some View {
         VStack {
@@ -26,32 +22,10 @@ struct LoginView: View {
             .padding(.bottom, 80)
             VStack {
                 VStack(spacing: 35) {
-                    TextField("First name", text: $logInViewModel.manager.user.firstName)
+                    TextField("Email", text: $logInViewModel.manager.user.email)
                         .modifier(TextFieldModifier())
                     
-                    ZStack(alignment: .trailing) {
-                        if showPassword {
-                            TextField("Password", text: $logInViewModel.manager.user.password)
-                                .modifier(TextFieldModifier())
-                                .focused($inFocus, equals: .plain)
-                        } else {
-                            SecureField("Password", text: $logInViewModel.manager.user.password)
-                                .modifier(TextFieldModifier())
-                                .focused($inFocus, equals: .secure)
-                        }
-                        
-                        Button {
-                            self.showPassword.toggle()
-                            inFocus = showPassword ? .plain : .secure
-                        } label: {
-                            Image("security")
-                        }
-                
-                        .padding(.trailing, 15)
-                       
-                    }
-
-                   
+                    PasswordTextField(user: $logInViewModel.manager.user)
                 }
                 Spacer().frame(height: 60)
                 Button {
@@ -66,7 +40,7 @@ struct LoginView: View {
             }
         }
         
-        .alert(isPresented: $logInViewModel.userStorage.hasError, error: logInViewModel.userStorage.error) {
+        .alert(isPresented: $logInViewModel.manager.hasError, error: logInViewModel.manager.error) {
             
         }
         

@@ -30,6 +30,7 @@
 		087DD26429C6DA46004087F7 /* StepperButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087DD26329C6DA46004087F7 /* StepperButtonModifier.swift */; };
 		087DD26D29C6DD24004087F7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087DD26C29C6DD24004087F7 /* ProfileViewModel.swift */; };
 		087DD26F29C6DFC9004087F7 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087DD26E29C6DFC9004087F7 /* TextFieldModifier.swift */; };
+		087DD27829C76AC6004087F7 /* PasswordTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087DD27729C76AC6004087F7 /* PasswordTextFieldView.swift */; };
 		08848FAC29C2D9A9006FF40C /* DetailPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08848FAB29C2D9A9006FF40C /* DetailPageViewModel.swift */; };
 		08848FAE29C2DB03006FF40C /* ItemDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08848FAD29C2DB03006FF40C /* ItemDetailModel.swift */; };
 		08848FB029C34C30006FF40C /* DetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08848FAF29C34C30006FF40C /* DetailFooterView.swift */; };
@@ -77,6 +78,7 @@
 		087DD26329C6DA46004087F7 /* StepperButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperButtonModifier.swift; sourceTree = "<group>"; };
 		087DD26C29C6DD24004087F7 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		087DD26E29C6DFC9004087F7 /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
+		087DD27729C76AC6004087F7 /* PasswordTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextFieldView.swift; sourceTree = "<group>"; };
 		08848FAB29C2D9A9006FF40C /* DetailPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageViewModel.swift; sourceTree = "<group>"; };
 		08848FAD29C2DB03006FF40C /* ItemDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailModel.swift; sourceTree = "<group>"; };
 		08848FAF29C34C30006FF40C /* DetailFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFooterView.swift; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 				08ED278329BB6D3100EF047D /* ButtonModifier.swift */,
 				0839FB9829C0558000421523 /* SearchBar.swift */,
 				087DD26E29C6DFC9004087F7 /* TextFieldModifier.swift */,
+				087DD27729C76AC6004087F7 /* PasswordTextFieldView.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				0839FB8629BF498700421523 /* RoundView.swift in Sources */,
 				08D5621E29C428D300F967F0 /* CartManager.swift in Sources */,
 				087DD26229C6D4E6004087F7 /* ListModifier.swift in Sources */,
+				087DD27829C76AC6004087F7 /* PasswordTextFieldView.swift in Sources */,
 				0839FB8A29BF572600421523 /* FlashSaleModel.swift in Sources */,
 				0839FB9529BF71C700421523 /* MainPageViewModel.swift in Sources */,
 				08573DCB29C18C6100230C47 /* AppTabBarView.swift in Sources */,

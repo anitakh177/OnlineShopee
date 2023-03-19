@@ -12,17 +12,11 @@ class UserStorage: ObservableObject {
     
     let container: NSPersistentContainer
     @Published var savedEntities: [UserEntity] = []
-    @Published var hasError = false
-    @Published var error: UserStorageError?
+   
    
     init() {
         container = NSPersistentContainer(name: "UserModel")
         container.loadPersistentStores { description, error in
-            if let error = error {
-                print("Error loadind core data \(error)")
-            } else {
-                print("Successfully loaded core data")
-            }
         }
         fetchUsers()
     }
@@ -59,34 +53,9 @@ class UserStorage: ObservableObject {
       
     }
     
-    func validateUser(firstName: String, password: String) {
-       
-        hasError = savedEntities.first(where: { $0.email == firstName && $0.password == password}) != nil
-        error = savedEntities.first(where: { $0.email == firstName && $0.password == password}) != nil ? .userAlreadyExist : nil
-    }
-    
-    func userEmpty(firstName: String, password: String) {
-        hasError = savedEntities.first(where: { $0.email == firstName && $0.password == password}) == nil
-        error = savedEntities.first(where: { $0.email == firstName && $0.password == password}) == nil ? .userNotExist : nil
+    func validateUser(firstName: String, password: String) -> Bool {
+        return savedEntities.first(where: { $0.email == firstName && $0.password == password}) != nil
     }
     
     
-}
-
-extension UserStorage {
-    
-    enum UserStorageError: LocalizedError {
-        case userAlreadyExist
-        case userNotExist
-        
-        var errorDescription: String? {
-            switch self {
-            case .userAlreadyExist:
-                return "Yur profile already exist."
-            case .userNotExist:
-                return "Coudn't find user"
-            }
-            
-        }
-    }
 }
