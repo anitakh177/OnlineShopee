@@ -1,23 +1,20 @@
 //
-//  TextFieldView.swift
+//  TextFieldModifier.swift
 //  OnlineShoppee
 //
-//  Created by anita on 3/10/23.
+//  Created by anita on 3/19/23.
 //
 
 import SwiftUI
 
-struct TextFieldView: View {
-    @Binding var textProp: String
-    var title: String
-    var body: some View {
-        TextField(title, text: $textProp)
+struct TextFieldModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
             .foregroundColor(Colors.textFieldTextColor)
             .multilineTextAlignment(.center)
             .frame(width: 289, height: 29)
             .background(Colors.textFieldColor)
             .cornerRadius(15)
-           
-        
     }
 }
+

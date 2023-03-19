@@ -13,6 +13,7 @@ struct DetailPageView: View {
     @StateObject private var viewModel = DetailPageViewModel()
     @StateObject var cartManager = CartManager()
     
+    
     var btnBack : some View { Button(action: {
             self.presentationMode.wrappedValue.dismiss()
             }) {
@@ -24,7 +25,6 @@ struct DetailPageView: View {
                 }
             }
         }
-        
 
     var body: some View {
         VStack() {
@@ -60,6 +60,8 @@ struct DetailPageView_Previews: PreviewProvider {
     }
 }
 
+
+
 struct ImageCollectionView: View {
     @Binding var selectedImage: Int
     var imageUrl: [String]
@@ -72,7 +74,6 @@ struct ImageCollectionView: View {
                             .resizable()
                             .frame(width: 66, height: 38)
                             .aspectRatio(contentMode: .fill)
-                           
                             .cornerRadius(12)
                         
                     } placeholder: {
@@ -127,9 +128,6 @@ struct MainImageView: View {
                     } label: {
                         Image("share")
                     }
-                    
-                    
-                    
                 }
             }
             .frame(width: 42, height: 95)

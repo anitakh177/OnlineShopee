@@ -9,8 +9,8 @@ import SwiftUI
 
 struct DetailFooterView: View {
     @EnvironmentObject var cartManager: CartManager
-   @State var product: ItemDetailModel
-    //@State var count: Int = 0
+    @State var product: ItemDetailModel
+   
     var body: some View {
        
         VStack {

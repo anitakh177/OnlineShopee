@@ -11,8 +11,6 @@ struct LoginView: View {
     
     @EnvironmentObject var session: SessionManager
     @StateObject var logInViewModel = LogInViewModel()
-    @State private var firstName: String = ""
-    @State private var password: String = ""
     @State private var showPassword: Bool = false
     @FocusState var inFocus: Field?
     
@@ -23,19 +21,22 @@ struct LoginView: View {
     var body: some View {
         VStack {
         Text("Welcome back")
-            .font(.title)
+            .font(.custom(.bold, size: 24))
             .padding(.top, 128)
             .padding(.bottom, 80)
             VStack {
                 VStack(spacing: 35) {
-                    TextFieldView(textProp: $logInViewModel.manager.user.firstName, title: "First Name")
+                    TextField("First name", text: $logInViewModel.manager.user.firstName)
+                        .modifier(TextFieldModifier())
                     
                     ZStack(alignment: .trailing) {
                         if showPassword {
-                            TextFieldView(textProp: $logInViewModel.manager.user.password, title: "Password")
+                            TextField("Password", text: $logInViewModel.manager.user.password)
+                                .modifier(TextFieldModifier())
                                 .focused($inFocus, equals: .plain)
                         } else {
-                            SecureTextFieldView(textProp: $logInViewModel.manager.user.password, title: "Password")
+                            SecureField("Password", text: $logInViewModel.manager.user.password)
+                                .modifier(TextFieldModifier())
                                 .focused($inFocus, equals: .secure)
                         }
                         
@@ -58,7 +59,8 @@ struct LoginView: View {
                             logInViewModel.validateLogIn(session: session)
                         }
                 } label: {
-                    ButtonView(buttonText: "Login", imageIcon: false)
+                    Text("Login")
+                        .modifier(ButtonModifier())
                 }
                  Spacer()
             }

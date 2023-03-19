@@ -65,7 +65,13 @@ struct ProfileMainView: View {
             Button {
                 
             } label: {
-                ButtonView(buttonText: "Upload item", imageIcon: true)
+                Button {
+                    
+                } label: {
+                    Label("Upload idem", image: "upload")
+                }
+                .modifier(ButtonModifier())
+
             }
         }
         .padding(.vertical, 20)

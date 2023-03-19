@@ -22,21 +22,25 @@ struct SignUpView: View {
         
         VStack {
             Text("Sign in")
-                .font(.title)
+                .font(.custom(.bold, size: 24))
                 .padding(.top, 128)
-                Spacer()
-                .frame(height: 60)
+    
             VStack(spacing: 35) {
-                TextFieldView(textProp: $signupViewModel.manager.user.firstName, title: "First name")
-                TextFieldView(textProp: $signupViewModel.manager.user.lastName, title: "Last name")
-                TextFieldView(textProp: $signupViewModel.manager.user.email, title: "Email")
+                TextField("First name", text: $signupViewModel.manager.user.firstName)
+                    .modifier(TextFieldModifier())
+               TextField("Last name", text:  $signupViewModel.manager.user.lastName)
+                    .modifier(TextFieldModifier())
+                TextField("Email", text: $signupViewModel.manager.user.email)
+                    .modifier(TextFieldModifier())
                 
                 ZStack(alignment: .trailing)
                 { if showPassword {
-                    TextFieldView(textProp: $signupViewModel.manager.user.password, title: "Password")
+                    TextField("Password", text: $signupViewModel.manager.user.password)
+                        .modifier(TextFieldModifier())
                         .focused($inFocus, equals: .plain)
                 } else {
-                    SecureTextFieldView(textProp: $signupViewModel.manager.user.password, title: "Password")
+                    SecureField("Password", text: $signupViewModel.manager.user.password)
+                        .modifier(TextFieldModifier())
                         .focused($inFocus, equals: .secure)
                 }
                     Button {
@@ -55,7 +59,8 @@ struct SignUpView: View {
                     }
                     
                 } label: {
-                    ButtonView(buttonText: "Sign in", imageIcon: false)
+                    Text("Sign in")
+                        .modifier(ButtonModifier())
                 }
                 .alert(isPresented: $signupViewModel.userStorage.hasError, error: signupViewModel.userStorage.error) {
                 }
@@ -63,15 +68,16 @@ struct SignUpView: View {
             }
             HStack(spacing: 8) {
                 Text("Already have an account?")
+
                 Button {
                     session.moveToLogInView()
                 } label: {
                     Text("Log in")
+                   
                 }
 
             }
-            
-                .font(.caption2)
+            .font(.custom(.regular, size: 10))
                 .padding(.leading, -100)
             Spacer().frame(height: 70)
             VStack(spacing: 30) {
@@ -107,6 +113,7 @@ struct SigninWithButton: View {
             
         } label: {
             Label(textLabel, image: iconImage)
+                .font(.custom(.medium, size: 14))
                 .foregroundColor(.black)
         }
     }

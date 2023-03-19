@@ -37,65 +37,28 @@ struct MainPageView: View {
 
                 List() {
                         CategoryCollectionView(box: box)
-                        .listRowBackground(Colors.backgroundColor)
-                        .listRowInsets(EdgeInsets())
-                        .listRowSeparator(.hidden)
-                        .background(Colors.backgroundColor)
+                        .modifier(ListModifier())
+    
                     Section {
                         LatestCollectionView(latestProducts: viewModel.latestProducts)
-                            .listRowBackground(Colors.backgroundColor)
-                            .listRowInsets(EdgeInsets())
-                            .listRowSeparator(.hidden)
+                            .modifier(ListModifier())
                             
                     } header: {
-                        HStack {
-                            Text("Latest")
-                                .font(.custom(.semibold, size: 16))     .foregroundColor(.black)
-                            Spacer()
-                            Button("View all") {
-                                
-                            }
-                            .font(.custom(.medium, size: 11))
-                            .foregroundColor(Colors.grayColor)
-                        }
+                        SectionHeaderView(sectionTitle: "Latest")
                     }
 
                     Section {
                         FlashSaleCollectionView(saleProducts: viewModel.saleProducts)
-                            .listRowBackground(Colors.backgroundColor)
-                            .listRowInsets(EdgeInsets())
-                            .listRowSeparator(.hidden)
+                            .modifier(ListModifier())
                     } header: {
-                        HStack {
-                            Text("Flash Sale")
-                                .font(.custom(.semibold, size: 16))     .foregroundColor(.black)
-
-                            Spacer()
-                            Button("View all") {
-                                
-                            }
-                            .font(.custom(.medium, size: 11))
-                            .foregroundColor(Colors.grayColor)
-                        }
+                       SectionHeaderView(sectionTitle: "Flash Sale")
                     }
                     
                     Section {
                         LatestCollectionView(latestProducts: viewModel.latestProducts)
-                            .listRowBackground(Colors.backgroundColor)
-                            .listRowInsets(EdgeInsets())
-                            .listRowSeparator(.hidden)
+                            .modifier(ListModifier())
                     } header: {
-                        HStack {
-                            Text("Brands")
-                                .font(.custom(.semibold, size: 16))     .foregroundColor(.black)
-
-                            Spacer()
-                            Button("View all") {
-                                
-                            }
-                            .font(.custom(.medium, size: 11))
-                            .foregroundColor(Colors.grayColor)
-                        }
+                        SectionHeaderView(sectionTitle: "Brands")
                     }
 
                     }
@@ -342,6 +305,22 @@ struct FlashSaleCollectionView: View {
                     
                 }
             }
+        }
+    }
+}
+
+struct SectionHeaderView: View {
+    var sectionTitle: String
+    var body: some View {
+        HStack {
+            Text(sectionTitle)
+                .font(.custom(.semibold, size: 16))     .foregroundColor(.black)
+            Spacer()
+            Button("View all") {
+                
+            }
+            .font(.custom(.medium, size: 11))
+            .foregroundColor(Colors.grayColor)
         }
     }
 }
