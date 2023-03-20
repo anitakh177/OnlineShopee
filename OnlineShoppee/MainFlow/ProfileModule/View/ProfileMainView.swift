@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @StateObject var viewModel = ProfileViewModel()
     @EnvironmentObject var session: SessionManager
+   
+   
     
     var body: some View {
         NavigationView {
             VStack {
-                ProfileMainView()
+                ProfileMainView(selectedImage: $viewModel.selectedImage, isPickerShowing: $viewModel.isPickerShowing)
                 CollectionView(session: session)
                 Spacer()
             }
+            
             .background(Colors.backgroundColor)
             .padding(.bottom, 40)
             .navigationTitle("Profile")
@@ -28,13 +32,16 @@ struct ProfileView: View {
                     Button {
                         
                     } label: {
-                        Image("arrow.left")
+                        Image(NavigationIcons.arrowLeft)
                     }
                     
                 }
             }
-
             
+            
+        }
+        .sheet(isPresented: $viewModel.isPickerShowing) {
+            ImagePicker(selectedImage: $viewModel.selectedImage, isPickerShowing: $viewModel.isPickerShowing)
         }
     
     }
@@ -48,13 +55,25 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct ProfileMainView: View {
+    @Binding var selectedImage: UIImage?
+    @Binding var isPickerShowing: Bool
     var body: some View {
         VStack {
+            if selectedImage != nil {
+                Image(uiImage: selectedImage!)
+                    .resizable()
+                    .background(.gray)
+                    .frame(width: 60, height: 60)
+                    .cornerRadius(30)
+        } else {
             Image("profileImage")
                 .resizable()
                 .background(.gray)
                 .frame(width: 60, height: 60)
                 .cornerRadius(30)
+        }
+           
+                
             Text("Change Photo")
                 .font(.custom(.regular, size: 11))
                 .foregroundColor(Colors.grayColor)
@@ -66,12 +85,12 @@ struct ProfileMainView: View {
                 
             } label: {
                 Button {
-                    
+                    isPickerShowing = true
                 } label: {
-                    Label("Upload idem", image: "upload")
+                    Label("Upload idem", image: Buttons.upload)
                 }
                 .modifier(ButtonModifier())
-
+                
             }
         }
         .padding(.vertical, 20)
@@ -90,7 +109,7 @@ struct CellWithButton: View {
             Text(title)
                 .font(.custom(.medium, size: 16))
             Spacer()
-            isWithButton ? Image("arrow") : nil
+            isWithButton ? Image(NavigationIcons.arrow) : nil
             
             
         }
@@ -122,14 +141,14 @@ struct CollectionView: View {
     var session: SessionManager
     var body: some View {
         VStack {
-            CellWithButton(title: "Trade store", iconImage: "card", isWithButton: true)
-            CellWithButton(title: "Payment method", iconImage: "card", isWithButton: true)
-            BalanceCell(title: "Balance", iconImage: "card")
-            CellWithButton(title: "Trade history", iconImage: "card", isWithButton: true)
+            CellWithButton(title: "Trade store", iconImage: Icons.card, isWithButton: true)
+            CellWithButton(title: "Payment method", iconImage: Icons.card, isWithButton: true)
+            BalanceCell(title: "Balance", iconImage: Icons.card)
+            CellWithButton(title: "Trade history", iconImage: Icons.card, isWithButton: true)
             
-            CellWithButton(title: "Restore purchase", iconImage: "card", isWithButton: true)
-            CellWithButton(title: "Help", iconImage: "help", isWithButton: false)
-            CellWithButton(title: "Log out", iconImage: "logout", isWithButton: false)
+            CellWithButton(title: "Restore purchase", iconImage: Icons.card, isWithButton: true)
+            CellWithButton(title: "Help", iconImage: Icons.help, isWithButton: false)
+            CellWithButton(title: "Log out", iconImage: Icons.logout, isWithButton: false)
                 .onTapGesture {
                     withAnimation {
                         session.LogOut()

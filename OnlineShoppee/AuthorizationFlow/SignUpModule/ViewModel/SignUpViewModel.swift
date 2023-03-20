@@ -11,7 +11,7 @@ import Foundation
 final class SignUpViewModel: ObservableObject {
      var manager = RegistrationManager()
     @Published var hasErrorV: Bool = false
-    
+    private let userStorage = UserStorage()
     
     func validateSignUp(session: SessionManager) {
         manager.validateSignUp()

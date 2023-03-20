@@ -20,12 +20,12 @@ struct MainPageView: View {
     @StateObject private var viewModel = MainPageViewModel()
     
     let box: [Box] = [
-    Box(title: "Phones", image: "phone"),
-    Box(title: "Headphones", image: "headphone"),
-    Box(title: "Games", image: "game"),
-    Box(title: "Cars", image: "car"),
-    Box(title: "Furniture", image: "furniture"),
-    Box(title: "Kids", image: "kids"),
+        Box(title: "Phones", image: CollectionIcons.phone),
+        Box(title: "Headphones", image: CollectionIcons.phone),
+        Box(title: "Games", image: CollectionIcons.game),
+        Box(title: "Cars", image: CollectionIcons.car),
+        Box(title: "Furniture", image: CollectionIcons.furniture),
+        Box(title: "Kids", image: CollectionIcons.kids),
     ]
     
     
@@ -75,7 +75,7 @@ struct MainPageView: View {
                         Button {
                             
                         } label: {
-                            Image("menu")
+                            Image(NavigationIcons.menu)
                         }
 
                     }
@@ -91,7 +91,7 @@ struct MainPageView: View {
                                         Text("Location")
                                             .font(.custom(.light, size: 8))
                                             .foregroundColor(.black)
-                                        Image("arrow.down")
+                                        Image(NavigationIcons.arrowDown)
                                     }
                                 
                         }
@@ -178,7 +178,7 @@ struct LatestItemsView: View {
                         .foregroundColor(.white)
                         .font(.custom(.bold, size: 12))
                         .lineLimit(2)
-                    Text("$"+latest.price)
+                    Text(latest.price)
                         .foregroundColor(.white)
                         .font(.custom(.bold, size: 10))
                 }
@@ -188,7 +188,7 @@ struct LatestItemsView: View {
                 Button {
                     
                 } label: {
-                    Image("addSmall")
+                    Image(Buttons.addSmall)
                 }
 
             }
@@ -240,7 +240,7 @@ struct SaleItemView: View {
                         RoundedRectangle(cornerRadius: 9)
                             .fill(.red)
                             .frame(width: 50, height: 20)
-                        Text(saleItem.discount+"%")
+                        Text(saleItem.discount)
                             .foregroundColor(.white)
                             .font(.custom(.bold, size: 15))
                     }
@@ -262,7 +262,7 @@ struct SaleItemView: View {
                                 .foregroundColor(.white)
                                 .font(.custom(.bold, size: 16))
                                 .lineLimit(2)
-                            Text("$"+saleItem.price)
+                            Text(saleItem.price)
                                 .foregroundColor(.white)
                                 .font(.custom(.medium, size: 13))
                     }
@@ -272,13 +272,13 @@ struct SaleItemView: View {
                         Button {
                             
                         } label: {
-                            Image("like")
+                            Image(Buttons.like)
                         }
                         
                         Button {
                             
                         } label: {
-                            Image("add")
+                            Image(Buttons.add)
                         }
 
                     }

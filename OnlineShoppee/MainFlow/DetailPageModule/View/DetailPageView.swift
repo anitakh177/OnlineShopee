@@ -18,7 +18,7 @@ struct DetailPageView: View {
             self.presentationMode.wrappedValue.dismiss()
             }) {
                 HStack {
-                Image(systemName: "chevron.left")
+                    Image(systemName: NavigationIcons.chevronLeft)
                         .renderingMode(.template)
                         .foregroundColor(.black)
                         
@@ -47,7 +47,7 @@ struct DetailPageView: View {
         }
         .padding(.bottom, 40)
       
-        .onAppear(perform: viewModel.fetchLatestItems)
+        .onAppear(perform: viewModel.fetchItems)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: btnBack)
     }
@@ -117,16 +117,16 @@ struct MainImageView: View {
                     Button {
                         
                     } label: {
-                        Image("favorite")
+                        Image(Icons.heart)
                             .renderingMode(.template)
                             .tint(Colors.violetColor)
                             .frame(width: 15, height: 13)
                     }
-                    Image("divider")
+                    Image(Icons.divider)
                     Button {
                         
                     } label: {
-                        Image("share")
+                        Image(Buttons.share)
                     }
                 }
             }
@@ -175,7 +175,7 @@ struct ProductInfoView: View {
                 Text(item.name)
                     .font(.custom(.bold, size: 20))
                 Spacer()
-                Text("$ " + item.price)
+                Text(item.price)
                     .font(.custom(.bold, size: 17))
             }
             Text(item.description)
@@ -183,12 +183,12 @@ struct ProductInfoView: View {
                 .foregroundColor(Colors.grayColor)
                 
             HStack {
-                Image("star")
+                Image(Icons.star)
                     .resizable()
                     .frame(width: 15, height: 15)
                 Text(item.rating)
                     .font(.custom(.medium, size: 13))
-                Text("("+item.numberOfReviews + ")")
+                Text(item.numberOfReviews)
                     .font(.custom(.regular, size: 13))
                     .foregroundColor(Colors.grayColor)
             }
