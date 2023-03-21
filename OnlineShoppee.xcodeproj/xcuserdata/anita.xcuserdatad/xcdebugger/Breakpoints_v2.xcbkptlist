@@ -14,8 +14,8 @@
             filePath = "OnlineShoppee/MainFlow/MainViewModule/ViewModel/MainPageViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "init(coordinator:productFetcher:)"
             landmarkType = "7">
          </BreakpointContent>
