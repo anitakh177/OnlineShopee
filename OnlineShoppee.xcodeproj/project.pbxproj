@@ -15,6 +15,15 @@
 		08175BAB29C84D5E006D0214 /* ImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08175BAA29C84D5E006D0214 /* ImageConstants.swift */; };
 		08175BAE29C860E2006D0214 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08175BAD29C860E2006D0214 /* ImagePicker.swift */; };
 		08175BB029C86B3D006D0214 /* ImagePickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08175BAF29C86B3D006D0214 /* ImagePickerCoordinator.swift */; };
+		08175BB629C8A1CD006D0214 /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08175BB529C8A1CD006D0214 /* MainFlowCoordinator.swift */; };
+		08175BB929C8A2B6006D0214 /* MainPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08175BB829C8A2B6006D0214 /* MainPageCoordinator.swift */; };
+		08175BBC29C8A303006D0214 /* DetailPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08175BBB29C8A303006D0214 /* DetailPageCoordinator.swift */; };
+		08175BBE29C8B4F6006D0214 /* MainPageCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08175BBD29C8B4F6006D0214 /* MainPageCoordinatorView.swift */; };
+		08175BC029C8B67C006D0214 /* View+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08175BBF29C8B67C006D0214 /* View+Navigation.swift */; };
+		08175BC229C8B786006D0214 /* DetailPageCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08175BC129C8B786006D0214 /* DetailPageCoordinatorView.swift */; };
+		08175BC529C8BD3C006D0214 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08175BC429C8BD3C006D0214 /* ProfileCoordinator.swift */; };
+		08175BC729C8BDC6006D0214 /* ProfileCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08175BC629C8BDC6006D0214 /* ProfileCoordinatorView.swift */; };
+		08175BCA29C8C107006D0214 /* CollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08175BC929C8C107006D0214 /* CollectionItem.swift */; };
 		0839FB6E29BEDD7700421523 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839FB6D29BEDD7700421523 /* User.swift */; };
 		0839FB7B29BEF14900421523 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839FB7A29BEF14900421523 /* SignUpViewModel.swift */; };
 		0839FB7D29BEF16300421523 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839FB7C29BEF16300421523 /* LogInViewModel.swift */; };
@@ -69,6 +78,15 @@
 		08175BAA29C84D5E006D0214 /* ImageConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConstants.swift; sourceTree = "<group>"; };
 		08175BAD29C860E2006D0214 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		08175BAF29C86B3D006D0214 /* ImagePickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinator.swift; sourceTree = "<group>"; };
+		08175BB529C8A1CD006D0214 /* MainFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinator.swift; sourceTree = "<group>"; };
+		08175BB829C8A2B6006D0214 /* MainPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageCoordinator.swift; sourceTree = "<group>"; };
+		08175BBB29C8A303006D0214 /* DetailPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageCoordinator.swift; sourceTree = "<group>"; };
+		08175BBD29C8B4F6006D0214 /* MainPageCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageCoordinatorView.swift; sourceTree = "<group>"; };
+		08175BBF29C8B67C006D0214 /* View+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Navigation.swift"; sourceTree = "<group>"; };
+		08175BC129C8B786006D0214 /* DetailPageCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageCoordinatorView.swift; sourceTree = "<group>"; };
+		08175BC429C8BD3C006D0214 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		08175BC629C8BDC6006D0214 /* ProfileCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinatorView.swift; sourceTree = "<group>"; };
+		08175BC929C8C107006D0214 /* CollectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItem.swift; sourceTree = "<group>"; };
 		0839FB6D29BEDD7700421523 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0839FB7A29BEF14900421523 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		0839FB7C29BEF16300421523 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
@@ -143,6 +161,59 @@
 				08175BAF29C86B3D006D0214 /* ImagePickerCoordinator.swift */,
 			);
 			path = UIKitComponents;
+			sourceTree = "<group>";
+		};
+		08175BB329C8A155006D0214 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				08175BBD29C8B4F6006D0214 /* MainPageCoordinatorView.swift */,
+				08175BB829C8A2B6006D0214 /* MainPageCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		08175BB429C8A15F006D0214 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				08573DCA29C18C6100230C47 /* AppTabBarView.swift */,
+				08175BB529C8A1CD006D0214 /* MainFlowCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		08175BBA29C8A2F3006D0214 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				08175BBB29C8A303006D0214 /* DetailPageCoordinator.swift */,
+				08175BC129C8B786006D0214 /* DetailPageCoordinatorView.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		08175BC329C8BCDB006D0214 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				08175BC429C8BD3C006D0214 /* ProfileCoordinator.swift */,
+				08175BC629C8BDC6006D0214 /* ProfileCoordinatorView.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		08175BC829C8C0E2006D0214 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				08175BC929C8C107006D0214 /* CollectionItem.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		08175BCB29C8C2B1006D0214 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				08848FB129C36CDB006FF40C /* CustomStepper.swift */,
+				08848FAF29C34C30006FF40C /* DetailFooterView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		0839FB6F29BEEFDC00421523 /* AuthorizationFlow */ = {
@@ -234,6 +305,8 @@
 		0839FB7F29BF3EFB00421523 /* MainViewModule */ = {
 			isa = PBXGroup;
 			children = (
+				08175BC829C8C0E2006D0214 /* Components */,
+				08175BB329C8A155006D0214 /* Coordinator */,
 				0839FB8229BF3F1E00421523 /* Model */,
 				0839FB8129BF3F1800421523 /* View */,
 				0839FB8029BF3F0C00421523 /* ViewModel */,
@@ -281,7 +354,6 @@
 		0853819629BC44FA00FF816B /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				08573DC929C18C3A00230C47 /* CustomTabBar */,
 				08BE798F29BC915F00A81FC8 /* CoreData */,
 				0839FB8B29BF5B8300421523 /* NetworkLayer */,
 				0853819729BC450D00FF816B /* SessionManager.swift */,
@@ -295,6 +367,7 @@
 			children = (
 				08D5621F29C4647500F967F0 /* HexConverter.swift */,
 				08D5622129C4B94100F967F0 /* Font.swift */,
+				08175BBF29C8B67C006D0214 /* View+Navigation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -302,7 +375,6 @@
 		08573DC929C18C3A00230C47 /* CustomTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				08573DCA29C18C6100230C47 /* AppTabBarView.swift */,
 				08573DCC29C1915000230C47 /* CustomTabBarView.swift */,
 				08573DD029C1B3AE00230C47 /* TabBarItemsPreferenceKey.swift */,
 				08573DCE29C1AB7600230C47 /* CustomTabBarContainerView.swift */,
@@ -314,6 +386,7 @@
 		087DD26529C6DB4E004087F7 /* ProfileModule */ = {
 			isa = PBXGroup;
 			children = (
+				08175BC329C8BCDB006D0214 /* Coordinator */,
 				087DD26829C6DB6C004087F7 /* Model */,
 				087DD26729C6DB65004087F7 /* View */,
 				087DD26629C6DB5C004087F7 /* ViewModel */,
@@ -347,6 +420,8 @@
 		08848FA529C2D843006FF40C /* DetailPageModule */ = {
 			isa = PBXGroup;
 			children = (
+				08175BCB29C8C2B1006D0214 /* Components */,
+				08175BBA29C8A2F3006D0214 /* Coordinator */,
 				08848FA829C2D97C006FF40C /* Model */,
 				08848FA729C2D975006FF40C /* View */,
 				08848FA629C2D96C006FF40C /* ViewModel */,
@@ -366,8 +441,6 @@
 		08848FA729C2D975006FF40C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				08848FAF29C34C30006FF40C /* DetailFooterView.swift */,
-				08848FB129C36CDB006FF40C /* CustomStepper.swift */,
 				08D5622529C4CB5100F967F0 /* DetailPageView.swift */,
 			);
 			path = View;
@@ -411,6 +484,8 @@
 		08ED26E029BB08E900EF047D /* OnlineShoppee */ = {
 			isa = PBXGroup;
 			children = (
+				08573DC929C18C3A00230C47 /* CustomTabBar */,
+				08175BB429C8A15F006D0214 /* Coordinator */,
 				08175BAC29C85FC8006D0214 /* UIKitComponents */,
 				08175BA929C84D3C006D0214 /* Helpers */,
 				0853819629BC44FA00FF816B /* Managers */,
@@ -538,6 +613,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08573DCD29C1915100230C47 /* CustomTabBarView.swift in Sources */,
+				08175BC029C8B67C006D0214 /* View+Navigation.swift in Sources */,
 				08175BAE29C860E2006D0214 /* ImagePicker.swift in Sources */,
 				08BE799229BC916D00A81FC8 /* UserModel.xcdatamodeld in Sources */,
 				0839FB8429BF3FC100421523 /* MainPageView.swift in Sources */,
@@ -545,7 +621,9 @@
 				0853819E29BC4AF400FF816B /* RegistrationManager.swift in Sources */,
 				08175BA629C81F96006D0214 /* ApiError.swift in Sources */,
 				08848FAC29C2D9A9006FF40C /* DetailPageViewModel.swift in Sources */,
+				08175BB929C8A2B6006D0214 /* MainPageCoordinator.swift in Sources */,
 				08175BAB29C84D5E006D0214 /* ImageConstants.swift in Sources */,
+				08175BBC29C8A303006D0214 /* DetailPageCoordinator.swift in Sources */,
 				087DD26D29C6DD24004087F7 /* ProfileViewModel.swift in Sources */,
 				08573DD329C1C13600230C47 /* TabBarItem.swift in Sources */,
 				087DD26F29C6DFC9004087F7 /* TextFieldModifier.swift in Sources */,
@@ -555,7 +633,9 @@
 				08848FAE29C2DB03006FF40C /* ItemDetailModel.swift in Sources */,
 				08D5622229C4B94100F967F0 /* Font.swift in Sources */,
 				0853819829BC450D00FF816B /* SessionManager.swift in Sources */,
+				08175BC229C8B786006D0214 /* DetailPageCoordinatorView.swift in Sources */,
 				0839FB8629BF498700421523 /* RoundView.swift in Sources */,
+				08175BC729C8BDC6006D0214 /* ProfileCoordinatorView.swift in Sources */,
 				08D5621E29C428D300F967F0 /* CartManager.swift in Sources */,
 				087DD26229C6D4E6004087F7 /* ListModifier.swift in Sources */,
 				08175BA429C81F6C006D0214 /* Endpoint.swift in Sources */,
@@ -566,6 +646,8 @@
 				08573DCB29C18C6100230C47 /* AppTabBarView.swift in Sources */,
 				0839FB9929C0558000421523 /* SearchBar.swift in Sources */,
 				08848FB229C36CDB006FF40C /* CustomStepper.swift in Sources */,
+				08175BC529C8BD3C006D0214 /* ProfileCoordinator.swift in Sources */,
+				08175BB629C8A1CD006D0214 /* MainFlowCoordinator.swift in Sources */,
 				08D5622029C4647500F967F0 /* HexConverter.swift in Sources */,
 				08ED26E429BB08E900EF047D /* ProfileMainView.swift in Sources */,
 				08175BA029C81CCC006D0214 /* NetworkService.swift in Sources */,
@@ -583,6 +665,8 @@
 				0839FB8829BF56DD00421523 /* LatestItemModel.swift in Sources */,
 				08175BB029C86B3D006D0214 /* ImagePickerCoordinator.swift in Sources */,
 				0839FB6E29BEDD7700421523 /* User.swift in Sources */,
+				08175BCA29C8C107006D0214 /* CollectionItem.swift in Sources */,
+				08175BBE29C8B4F6006D0214 /* MainPageCoordinatorView.swift in Sources */,
 				08175BA229C81CED006D0214 /* ProductApi.swift in Sources */,
 				087DD26429C6DA46004087F7 /* StepperButtonModifier.swift in Sources */,
 			);

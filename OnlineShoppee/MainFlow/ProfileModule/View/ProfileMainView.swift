@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @StateObject var viewModel = ProfileViewModel()
+    @StateObject var viewModel: ProfileViewModel
     @EnvironmentObject var session: SessionManager
    
    
     
     var body: some View {
-        NavigationView {
+       
             VStack {
                 ProfileMainView(selectedImage: $viewModel.selectedImage, isPickerShowing: $viewModel.isPickerShowing)
                 CollectionView(session: session)
@@ -23,36 +23,23 @@ struct ProfileView: View {
             
             .background(Colors.backgroundColor)
             .padding(.bottom, 40)
-            .navigationTitle("Profile")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbarBackground(Colors.backgroundColor, for: .navigationBar)
-            .toolbarBackground(.hidden, for: .navigationBar)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        
-                    } label: {
-                        Image(NavigationIcons.arrowLeft)
-                    }
-                    
-                }
-            }
+           
             
             
-        }
+        
         .sheet(isPresented: $viewModel.isPickerShowing) {
             ImagePicker(selectedImage: $viewModel.selectedImage, isPickerShowing: $viewModel.isPickerShowing)
         }
     
     }
 }
-
+/*
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
             .environmentObject(SessionManager())
     }
-}
+}*/
 
 struct ProfileMainView: View {
     @Binding var selectedImage: UIImage?

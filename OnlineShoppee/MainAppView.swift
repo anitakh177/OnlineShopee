@@ -17,7 +17,7 @@ struct MainAppView: View {
             SignUpView()
                 .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .opacity))
         case .loggedIn:
-           AppTabBarView()
+            AppTabBarView(coordinator: MainFlowCoordinator())
                 .transition(.opacity)
         case .logInView:
             LoginView()

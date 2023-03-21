@@ -17,9 +17,23 @@ struct ItemDetailViewModel: Hashable {
 
 }
 
-
+@MainActor 
 
 final class DetailPageViewModel: ObservableObject {
+    
+    private unowned let coordinator: DetailPageCoordinator
+    private let willChangeTabTo: TabBarItem
+    
+    init(coordinator: DetailPageCoordinator, willChangeTabTo: TabBarItem) {
+        self.coordinator = coordinator
+        self.willChangeTabTo = willChangeTabTo
+        
+        fetchItems()
+    }
+    
+    func changeTab() {
+        coordinator.changeTab(with: willChangeTabTo)
+    }
     
     @Published var itemViewModel: ItemDetailViewModel?
     @Published var productItem: ItemDetailModel?

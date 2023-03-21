@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailPageView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
    
-    @StateObject private var viewModel = DetailPageViewModel()
+    @StateObject var viewModel: DetailPageViewModel
     @StateObject var cartManager = CartManager()
     
     
@@ -47,20 +47,11 @@ struct DetailPageView: View {
         }
         .padding(.bottom, 40)
       
-        .onAppear(perform: viewModel.fetchItems)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: btnBack)
     }
     
 }
-
-struct DetailPageView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailPageView()
-    }
-}
-
-
 
 struct ImageCollectionView: View {
     @Binding var selectedImage: Int

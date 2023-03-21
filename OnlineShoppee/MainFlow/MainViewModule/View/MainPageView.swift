@@ -7,40 +7,21 @@
 
 import SwiftUI
 
-struct Box: Identifiable {
-   
-    var id = UUID()
-    var title:  String
-    var image: String
-}
-
-
-
 struct MainPageView: View {
-    @StateObject private var viewModel = MainPageViewModel()
     
-    let box: [Box] = [
-        Box(title: "Phones", image: CollectionIcons.phone),
-        Box(title: "Headphones", image: CollectionIcons.phone),
-        Box(title: "Games", image: CollectionIcons.game),
-        Box(title: "Cars", image: CollectionIcons.car),
-        Box(title: "Furniture", image: CollectionIcons.furniture),
-        Box(title: "Kids", image: CollectionIcons.kids),
-    ]
-    
+    @StateObject var viewModel: MainPageViewModel
     
     var body: some View {
-        NavigationView {
-            
+       
             VStack(spacing: 22) {
                 SearchBar(text: .constant(""))
 
                 List() {
-                        CategoryCollectionView(box: box)
+                    CategoryCollectionView()
                         .modifier(ListModifier())
     
                     Section {
-                        LatestCollectionView(latestProducts: viewModel.latestProducts)
+                        LatestCollectionView(viewModel: viewModel)
                             .modifier(ListModifier())
                             
                     } header: {
@@ -48,14 +29,14 @@ struct MainPageView: View {
                     }
 
                     Section {
-                        FlashSaleCollectionView(saleProducts: viewModel.saleProducts)
+                        FlashSaleCollectionView(viewModel: viewModel)
                             .modifier(ListModifier())
                     } header: {
                        SectionHeaderView(sectionTitle: "Flash Sale")
                     }
                     
                     Section {
-                        LatestCollectionView(latestProducts: viewModel.latestProducts)
+                        LatestCollectionView(viewModel: viewModel)
                             .modifier(ListModifier())
                     } header: {
                         SectionHeaderView(sectionTitle: "Brands")
@@ -65,57 +46,15 @@ struct MainPageView: View {
                 
                     .listStyle(.plain)
                     
-                    
-            
-                .onAppear(perform: viewModel.fetchItems)
-                .navigationTitle("Trade by bata")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button {
-                            
-                        } label: {
-                            Image(NavigationIcons.menu)
-                        }
-
-                    }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        VStack(spacing: 0) {
-                            Image("avatar")
-                            Button {
-                                
-                            } label: {
-                               
-                                   
-                                    HStack(spacing: 4){
-                                        Text("Location")
-                                            .font(.custom(.light, size: 8))
-                                            .foregroundColor(.black)
-                                        Image(NavigationIcons.arrowDown)
-                                    }
-                                
-                        }
-                        }
-
-                    }
-            }
             }
             .padding(.horizontal, 11)
             .background(Colors.backgroundColor)
             .padding(.bottom, 40)
             .accentColor(.black)
             
-            
-        }
-        
     }
 }
 
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainPageView()
-    }
-}
 
 struct CategoryView: View {
     var title: String
@@ -135,11 +74,11 @@ struct CategoryView: View {
 }
 
 struct CategoryCollectionView: View {
-    var box: [Box]
+   
     var body: some View {
         ScrollView(.horizontal) {
             LazyHGrid(rows: [GridItem((.flexible()))], spacing: 20) {
-                ForEach(box) { item in
+                ForEach(Box.box) { item in
                     CategoryView(title: item.title, image: item.image)
                 }
             }
@@ -200,16 +139,16 @@ struct LatestItemsView: View {
 }
 
 struct LatestCollectionView: View {
-    var latestProducts: [LatestProducts]
+   @StateObject var viewModel: MainPageViewModel
     var body: some View {
         ScrollView(.horizontal) {
             LazyHGrid(rows: [GridItem((.flexible()))], spacing: 12) {
-                ForEach(latestProducts) { item in
-                    NavigationLink(destination: DetailPageView()) {
+                ForEach(viewModel.latestProducts) { item in
                         LatestItemsView(latest: item)
-                    }
+                        .onTapGesture {
+                            viewModel.coordinator.openDetailPage()
                             
-                        
+                        }
                 }
                 .frame(width: 114, height: 129)
             }
@@ -293,16 +232,15 @@ struct SaleItemView: View {
 }
 
 struct FlashSaleCollectionView: View {
-    var saleProducts: [SaleProducts]
+    @StateObject var viewModel: MainPageViewModel
     var body: some View {
         ScrollView(.horizontal) {
             LazyHGrid(rows: [GridItem(.flexible())]) {
-                ForEach(saleProducts) { item in
-                    NavigationLink(destination: DetailPageView()) {
+                ForEach(viewModel.saleProducts) { item in
                         SaleItemView(saleItem: item)
-                    }
-                   
-                    
+                        .onTapGesture {
+                            viewModel.coordinator.openDetailPage()
+                        }
                 }
             }
         }
@@ -314,7 +252,8 @@ struct SectionHeaderView: View {
     var body: some View {
         HStack {
             Text(sectionTitle)
-                .font(.custom(.semibold, size: 16))     .foregroundColor(.black)
+                .font(.custom(.semibold, size: 16))
+                .foregroundColor(.black)
             Spacer()
             Button("View all") {
                 

@@ -10,4 +10,9 @@ import UIKit
 final class ProfileViewModel: ObservableObject {
     @Published var selectedImage: UIImage?
     @Published var isPickerShowing = false
+    unowned let coordinator: ProfileCoordinator
+    
+    init(coordinator: ProfileCoordinator) {
+        self.coordinator = coordinator
+    }
 }

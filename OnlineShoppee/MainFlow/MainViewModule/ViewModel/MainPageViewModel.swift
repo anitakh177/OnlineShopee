@@ -28,11 +28,21 @@ struct SaleProducts: Identifiable {
 }
 
 final class MainPageViewModel: ObservableObject {
+    
+    unowned let coordinator: MainPageCoordinator
+    
     @Published var latestProducts = [LatestProducts]()
     @Published var saleProducts = [SaleProducts]()
     
     private var cancellable =  Set<AnyCancellable>()
-    private let productFetcher = ProductFetcher()
+    
+    private let productFetcher: ProductFetcher
+    
+    init(coordinator: MainPageCoordinator, productFetcher: ProductFetcher) {
+        self.coordinator = coordinator
+        self.productFetcher = productFetcher
+       fetchItems()
+    }
     
 
     func fetchItems() {
@@ -47,6 +57,9 @@ final class MainPageViewModel: ObservableObject {
                 self.latestProducts = latest.latest.map { LatestProducts(name: $0.name, price: "$\($0.price)", category: $0.category, image: $0.imageURL)
                     
                 }
+                
+                print(self.saleProducts)
+                print(self.latestProducts)
         
             })
             .store(in: &cancellable)
