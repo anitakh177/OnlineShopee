@@ -9,8 +9,26 @@ import SwiftUI
 
 struct DetailPageCoordinatorView: View {
     @ObservedObject var coordinator: DetailPageCoordinator
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    var backButton : some View { Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+            }) {
+                HStack {
+                    Image(systemName: NavigationIcons.chevronLeft)
+                        .renderingMode(.template)
+                        .foregroundColor(.black)
+                        
+                }
+            }
+        }
+    
     var body: some View {
-        DetailPageView(viewModel: coordinator.viewModel)
+        if let viewModel = coordinator.viewModel {
+            DetailPageView(viewModel: viewModel)
+                .navigationBarBackButtonHidden(true)
+                .navigationBarItems(leading: backButton)
+        }
     }
 }
 

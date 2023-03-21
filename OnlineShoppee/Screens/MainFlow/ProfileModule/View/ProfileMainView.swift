@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct ProfileView: View {
+    
+    // MARK: - Properties
+    
     @StateObject var viewModel: ProfileViewModel
     @EnvironmentObject var session: SessionManager
+    
+    // MARK: - View
    
     var body: some View {
        
             VStack {
                 ProfileMainView(selectedImage: $viewModel.selectedImage, isPickerShowing: $viewModel.isPickerShowing)
-                CollectionView(session: session)
+                CollectionView(viewModel: viewModel, session: session)
                 Spacer()
             }
             .background(Colors.backgroundColor)
@@ -27,13 +32,8 @@ struct ProfileView: View {
     
     }
 }
-/*
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
-            .environmentObject(SessionManager())
-    }
-}*/
+
+// MARK: - Profile Main View
 
 struct ProfileMainView: View {
    
@@ -54,8 +54,6 @@ struct ProfileMainView: View {
                 .frame(width: 60, height: 60)
                 .cornerRadius(30)
         }
-           
-                
             Text("Change Photo")
                 .font(.custom(.regular, size: 11))
                 .foregroundColor(Colors.grayColor)
@@ -77,7 +75,9 @@ struct ProfileMainView: View {
     }
 }
 
-struct CellWithButton: View {
+// MARK: Row View
+
+struct RowView: View {
     let title: String
     let iconImage: String
     let isWithButton: Bool
@@ -88,15 +88,13 @@ struct CellWithButton: View {
                 .font(.custom(.medium, size: 16))
             Spacer()
             isWithButton ? Image(NavigationIcons.arrow) : nil
-            
-            
         }
         .frame(height: 50)
         .padding(.trailing, 18)
     }
 }
 
-struct BalanceCell: View {
+struct BalanceRowView: View {
     let title: String
     let iconImage: String
    
@@ -116,27 +114,28 @@ struct BalanceCell: View {
 }
 
 struct CollectionView: View {
+    var viewModel: ProfileViewModel
     var session: SessionManager
     var body: some View {
         VStack {
-            CellWithButton(title: "Trade store", iconImage: Icons.card, isWithButton: true)
-            CellWithButton(title: "Payment method", iconImage: Icons.card, isWithButton: true)
-            BalanceCell(title: "Balance", iconImage: Icons.card)
-            CellWithButton(title: "Trade history", iconImage: Icons.card, isWithButton: true)
+            RowView(title: "Trade store", iconImage: Icons.card, isWithButton: true)
+            RowView(title: "Payment method", iconImage: Icons.card, isWithButton: true)
+            BalanceRowView(title: "Balance", iconImage: Icons.card)
+            RowView(title: "Trade history", iconImage: Icons.card, isWithButton: true)
             
-            CellWithButton(title: "Restore purchase", iconImage: Icons.card, isWithButton: true)
-            CellWithButton(title: "Help", iconImage: Icons.help, isWithButton: false)
-            CellWithButton(title: "Log out", iconImage: Icons.logout, isWithButton: false)
+            RowView(title: "Restore purchase", iconImage: Icons.card, isWithButton: true)
+            RowView(title: "Help", iconImage: Icons.help, isWithButton: false)
+            RowView(title: "Log out", iconImage: Icons.logout, isWithButton: false)
                 .onTapGesture {
                     withAnimation {
                         session.LogOut()
                     }
                 }
             
-        }.padding(.horizontal, 26)
-        
-            .frame( maxWidth: .infinity)
-            .edgesIgnoringSafeArea(.all)
-            .listStyle(PlainListStyle())
+        }
+        .padding(.horizontal, 26)
+        .frame( maxWidth: .infinity)
+        .edgesIgnoringSafeArea(.all)
+        .listStyle(PlainListStyle())
     }
 }

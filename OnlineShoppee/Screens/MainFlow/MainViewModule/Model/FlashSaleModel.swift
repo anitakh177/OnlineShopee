@@ -8,23 +8,17 @@
 import Foundation
 
 // MARK: - FlashSaleModel
-struct FlashSaleModel: Codable {
+struct FlashSaleModel: Decodable {
     let flashSale: [FlashSale]
 
-    enum CodingKeys: String, CodingKey {
-        case flashSale = "flash_sale"
-    }
 }
 
 // MARK: - FlashSale
-struct FlashSale: Codable {
+struct FlashSale: Decodable, Identifiable {
+    let id = UUID()
     let category, name: String
     let price: Double
     let discount: Int
-    let imageURL: String
+    let imageUrl: String
 
-    enum CodingKeys: String, CodingKey {
-        case category, name, price, discount
-        case imageURL = "image_url"
-    }
 }

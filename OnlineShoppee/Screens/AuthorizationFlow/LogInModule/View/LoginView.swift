@@ -9,10 +9,13 @@ import SwiftUI
 
 struct LoginView: View {
     
+    // MARK: Properties
+    
     @EnvironmentObject var session: SessionManager
     @StateObject var logInViewModel: LogInViewModel
-    
     @FocusState var inFocus: Field?
+    
+    // MARK: - View
 
     var body: some View {
         VStack {
@@ -24,7 +27,6 @@ struct LoginView: View {
                 VStack(spacing: 35) {
                     TextField("Email", text: $logInViewModel.manager.user.email)
                         .modifier(TextFieldModifier())
-                    
                     PasswordTextField(user: $logInViewModel.manager.user)
                 }
                 Spacer().frame(height: 60)
@@ -38,6 +40,9 @@ struct LoginView: View {
                 }
                  Spacer()
             }
+        }
+        .onTapGesture {
+            UIApplication.shared.dismissKeyboard()
         }
         
         .alert(isPresented: $logInViewModel.manager.hasError, error: logInViewModel.manager.error) {

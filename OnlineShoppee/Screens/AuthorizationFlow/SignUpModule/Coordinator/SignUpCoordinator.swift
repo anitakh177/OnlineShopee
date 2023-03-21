@@ -11,16 +11,16 @@ import SwiftUI
 final class SignUpCoordinator: ObservableObject, Identifiable {
     
     private unowned let parent: AuthorizationFlowCoordinator?
-    @Published var viewModel: SignUpViewModel!
+    @Published var viewModel: SignUpViewModel?
     @Published var logInCoordinator: LogInCoordinator?
-   // @Published var alertItem:
     
     init(parent: AuthorizationFlowCoordinator?) {
         self.parent = parent
-        self.viewModel = SignUpViewModel(coordinator: self, userStorage: UserStorage(), manager: RegistrationManager())
+        self.viewModel = SignUpViewModel(coordinator: self, userStorage: UserStorage.shared, manager: RegistrationManager())
     }
     
     func openLogInPage() {
         logInCoordinator = LogInCoordinator(parent: parent)
     }
+    
 }

@@ -14,7 +14,7 @@ final class RegistrationManager: ObservableObject {
     @Published var hasError = false
     @Published var error: RegistrationError?
     
-   private let userStorage = UserStorage()
+    private let userStorage = UserStorage.shared
     
     func validateLogin() {
         if user.email.isEmpty && user.password.isEmpty  {

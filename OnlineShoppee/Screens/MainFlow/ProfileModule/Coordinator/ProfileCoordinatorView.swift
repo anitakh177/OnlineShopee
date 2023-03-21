@@ -13,7 +13,7 @@ struct ProfileCoordinatorView: View {
     
     var body: some View {
         NavigationView {
-            ProfileView(viewModel: coordinator.viewModel)
+            ProfileView(viewModel: coordinator.viewModel!)
                 .navigationTitle("Profile")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbarBackground(Colors.backgroundColor, for: .navigationBar)

@@ -13,9 +13,9 @@ class MainFlowCoordinator: ObservableObject {
     // MARK: Stored Properties
     
     @Published var tabSelection: TabBarItem = .home
-    @Published var mainPageCoordinator: MainPageCoordinator!
-    @Published var detailPageCoordinator: DetailPageCoordinator!
-    @Published var profileCoordinator: ProfileCoordinator!
+    @Published var mainPageCoordinator: MainPageCoordinator?
+    @Published var detailPageCoordinator: DetailPageCoordinator?
+    @Published var profileCoordinator: ProfileCoordinator?
     
     init() {
         mainPageCoordinator = .init(parent: self)

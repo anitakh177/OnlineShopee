@@ -9,7 +9,10 @@ import SwiftUI
 
 struct MainPageView: View {
     
+    // MARK: - Proprtie
     @StateObject var viewModel: MainPageViewModel
+    
+    // MARK: - View
     
     var body: some View {
        
@@ -55,6 +58,7 @@ struct MainPageView: View {
     }
 }
 
+// MARK: - Category View
 
 struct CategoryView: View {
     var title: String
@@ -88,11 +92,13 @@ struct CategoryCollectionView: View {
     }
 }
 
+// MARK: - Latest Items
+
 struct LatestItemsView: View {
-    var latest: LatestProducts
+    var latest: Latest
     var body: some View {
         ZStack {
-            AsyncImage(url: URL(string:latest.image)) { image in
+            AsyncImage(url: URL(string:latest.imageUrl)) { image in
                   image
                     .resizable()
                     .frame(width: 114, height: 129)
@@ -102,7 +108,6 @@ struct LatestItemsView: View {
                 Color.gray
             }
 
-                
             HStack {
                 VStack(alignment: .leading) {
                     ZStack {
@@ -117,7 +122,7 @@ struct LatestItemsView: View {
                         .foregroundColor(.white)
                         .font(.custom(.bold, size: 12))
                         .lineLimit(2)
-                    Text(latest.price)
+                    Text("$\(latest.price)")
                         .foregroundColor(.white)
                         .font(.custom(.bold, size: 10))
                 }
@@ -143,14 +148,17 @@ struct LatestCollectionView: View {
     var body: some View {
         ScrollView(.horizontal) {
             LazyHGrid(rows: [GridItem((.flexible()))], spacing: 12) {
-                ForEach(viewModel.latestProducts) { item in
-                        LatestItemsView(latest: item)
-                        .onTapGesture {
-                            viewModel.coordinator.openDetailPage()
-                            
-                        }
+                if let latestProducts = viewModel.latestProducts {
+                    ForEach(latestProducts.latest) { item in
+                            LatestItemsView(latest: item)
+                            .onTapGesture {
+                                viewModel.coordinator?.openDetailPage()
+                                
+                            }
+                    }
+                    .frame(width: 114, height: 129)
                 }
-                .frame(width: 114, height: 129)
+               
             }
         }
         .padding(.bottom, 40)
@@ -158,11 +166,13 @@ struct LatestCollectionView: View {
     }
 }
 
+// MARK: - Flash Sale View
+
 struct SaleItemView: View {
-    var saleItem: SaleProducts
+    var saleItem: FlashSale
     var body: some View {
         ZStack {
-            AsyncImage(url: URL(string: saleItem.image)) { image in
+            AsyncImage(url: URL(string: saleItem.imageUrl)) { image in
                   image
                     .resizable()
                     .frame(width: 174, height: 221)
@@ -179,7 +189,7 @@ struct SaleItemView: View {
                         RoundedRectangle(cornerRadius: 9)
                             .fill(.red)
                             .frame(width: 50, height: 20)
-                        Text(saleItem.discount)
+                        Text("\(saleItem.discount)%")
                             .foregroundColor(.white)
                             .font(.custom(.bold, size: 15))
                     }
@@ -201,7 +211,7 @@ struct SaleItemView: View {
                                 .foregroundColor(.white)
                                 .font(.custom(.bold, size: 16))
                                 .lineLimit(2)
-                            Text(saleItem.price)
+                            Text("$\(saleItem.price)")
                                 .foregroundColor(.white)
                                 .font(.custom(.medium, size: 13))
                     }
@@ -236,16 +246,20 @@ struct FlashSaleCollectionView: View {
     var body: some View {
         ScrollView(.horizontal) {
             LazyHGrid(rows: [GridItem(.flexible())]) {
-                ForEach(viewModel.saleProducts) { item in
-                        SaleItemView(saleItem: item)
-                        .onTapGesture {
-                            viewModel.coordinator.openDetailPage()
-                        }
+                if let saleProducts = viewModel.saleProducts {
+                    ForEach(saleProducts.flashSale) { item in
+                            SaleItemView(saleItem: item)
+                            .onTapGesture {
+                                viewModel.coordinator?.openDetailPage()
+                            }
+                    }
                 }
             }
         }
     }
 }
+
+// MARK: - Section Header View
 
 struct SectionHeaderView: View {
     var sectionTitle: String

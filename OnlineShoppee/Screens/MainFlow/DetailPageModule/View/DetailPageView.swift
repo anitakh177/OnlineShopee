@@ -8,30 +8,18 @@
 import SwiftUI
 
 struct DetailPageView: View {
+    
     // MARK: - Propepties
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     @StateObject var viewModel: DetailPageViewModel
     @StateObject var cartManager = CartManager()
-    
-    
-    var btnBack : some View { Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-            }) {
-                HStack {
-                    Image(systemName: NavigationIcons.chevronLeft)
-                        .renderingMode(.template)
-                        .foregroundColor(.black)
-                        
-                }
-            }
-        }
     
     // MARK: - View
 
     var body: some View {
         VStack() {
             ScrollView(.vertical) {
-            if let product = viewModel.itemViewModel {
+                if let product = viewModel.productItem {
                 MainImageView(imageUrl: product.imageUrls[viewModel.selectedImage])
                 ImageCollectionView(selectedImage: $viewModel.selectedImage, imageUrl: product.imageUrls)
                 ProductInfoView(item: product)
@@ -42,15 +30,11 @@ struct DetailPageView: View {
             if let product = viewModel.productItem {
                 DetailFooterView(product: product)
                     .environmentObject(cartManager)
-                    
                     .padding(.bottom, -15)
                     
             }
         }
         .padding(.bottom, 40)
-      
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: btnBack)
     }
     
 }
@@ -166,14 +150,14 @@ struct ColorSelectionView: View {
 // MARK: - ProductInfoView
 
 struct ProductInfoView: View {
-    var item: ProductDetail
+    var item: ItemDetailModel
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             HStack {
                 Text(item.name)
                     .font(.custom(.bold, size: 20))
                 Spacer()
-                Text(item.price)
+                Text("$\(item.price)")
                     .font(.custom(.bold, size: 17))
             }
             Text(item.description)
@@ -184,15 +168,13 @@ struct ProductInfoView: View {
                 Image(Icons.star)
                     .resizable()
                     .frame(width: 15, height: 15)
-                Text(item.rating)
+                Text(String(format:  "%.1f", item.rating))
                     .font(.custom(.medium, size: 13))
-                Text(item.numberOfReviews)
+                Text("(\(item.numberOfReviews))")
                     .font(.custom(.regular, size: 13))
                     .foregroundColor(Colors.grayColor)
             }
             ColorSelectionView(colors: item.colors)
-            
-            
         }
         .padding(.horizontal, 23)
     }

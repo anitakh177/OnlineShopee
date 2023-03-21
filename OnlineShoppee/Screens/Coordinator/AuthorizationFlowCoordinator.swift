@@ -9,7 +9,7 @@ import SwiftUI
 
 @MainActor
 class AuthorizationFlowCoordinator: ObservableObject {
-
+    
     // MARK: Stored Properties
     
     @Published var signUpCoordinator: SignUpCoordinator!

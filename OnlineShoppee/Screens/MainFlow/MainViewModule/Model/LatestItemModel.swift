@@ -8,18 +8,15 @@
 import Foundation
 
 // MARK: - LatestItems
-struct LatestItemModel: Codable {
+struct LatestItemModel: Decodable {
     let latest: [Latest]
 }
 
 // MARK: - Latest
-struct Latest: Codable {
+struct Latest: Decodable, Identifiable {
+    let id = UUID()
     let category, name: String
     let price: Int
-    let imageURL: String
+    let imageUrl: String
 
-    enum CodingKeys: String, CodingKey {
-        case category, name, price
-        case imageURL = "image_url"
-    }
 }

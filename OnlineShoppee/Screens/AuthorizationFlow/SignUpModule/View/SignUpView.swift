@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct SignUpView: View {
+    
+    // MARK: Properties
+    
     @StateObject var signupViewModel: SignUpViewModel
     @EnvironmentObject var session: SessionManager
+    
+    // MARK: View
   
     var body: some View {
         
@@ -20,12 +25,18 @@ struct SignUpView: View {
     
             VStack(spacing: 35) {
                 
-                TextField("First name", text:  $signupViewModel.manager.user.firstName)
+                TextField("First name", text:  $signupViewModel.manager.user.firstName) {
+                    UIApplication.shared.dismissKeyboard()
+                }
                      .modifier(TextFieldModifier())
                
-               TextField("Last name", text:  $signupViewModel.manager.user.lastName)
+                TextField("Last name", text:  $signupViewModel.manager.user.lastName) {
+                    UIApplication.shared.dismissKeyboard()
+                }
                     .modifier(TextFieldModifier())
-                TextField("Email", text: $signupViewModel.manager.user.email)
+                TextField("Email", text: $signupViewModel.manager.user.email) {
+                    UIApplication.shared.dismissKeyboard()
+                }
                     .modifier(TextFieldModifier())
                 
                 PasswordTextField(user: $signupViewModel.manager.user)
@@ -42,7 +53,7 @@ struct SignUpView: View {
                 Text("Already have an account?")
                 
                 Button {
-                    signupViewModel.coordinator.openLogInPage()
+                    signupViewModel.coordinator?.openLogInPage()
                 } label: {
                     Text("Log in")
                    
@@ -57,9 +68,13 @@ struct SignUpView: View {
 
             
         }
+        .onTapGesture {
+            UIApplication.shared.dismissKeyboard()
+        }
         .alert(isPresented: $signupViewModel.manager.hasError, error: signupViewModel.manager.error) {
             
         }
+        
        
         
     }
@@ -67,10 +82,12 @@ struct SignUpView: View {
 
 struct SigninView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView(signupViewModel: SignUpViewModel(coordinator: SignUpCoordinator(parent: AuthorizationFlowCoordinator()), userStorage: UserStorage(), manager: RegistrationManager()))
+        SignUpView(signupViewModel: SignUpViewModel(coordinator: SignUpCoordinator(parent: AuthorizationFlowCoordinator()), userStorage: UserStorage.shared, manager: RegistrationManager()))
             .environmentObject(SessionManager())
     }
 }
+
+// MARK: Service Button View
 
 struct SigninWithButton: View {
     let textLabel: String

@@ -10,14 +10,20 @@ import SwiftUI
 @MainActor
 final class MainPageCoordinator: ObservableObject, Identifiable {
     
-    private unowned let parent: MainFlowCoordinator?
-    @Published var viewModel: MainPageViewModel!
+    // MARK: Properties
+    
+    private weak var parent: MainFlowCoordinator?
+    @Published var viewModel: MainPageViewModel?
     @Published var detailPageCoordinator: DetailPageCoordinator?
+    
+    // MARK: Init
     
     init(parent: MainFlowCoordinator?) {
         self.parent = parent
-        self.viewModel = MainPageViewModel(coordinator: self, productFetcher: ProductFetcher())
+        self.viewModel = MainPageViewModel(coordinator: self, productFetcher: ProductFetcher(network: NetworkService()))
     }
+    
+    // MARK: Internal Methods
     
     func openDetailPage() {
         detailPageCoordinator = DetailPageCoordinator(parent: parent, isTabbarHidden: false, willChangeTabTo: .home)

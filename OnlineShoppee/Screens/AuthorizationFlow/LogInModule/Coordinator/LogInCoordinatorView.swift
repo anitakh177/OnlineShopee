@@ -10,7 +10,9 @@ import SwiftUI
 struct LogInCoordinatorView: View {
     @ObservedObject var coordinator: LogInCoordinator
     var body: some View {
-        LoginView(logInViewModel: coordinator.viewModel)
+        if let viewModel = coordinator.viewModel {
+            LoginView(logInViewModel: viewModel)
+        }
 
     }
 }

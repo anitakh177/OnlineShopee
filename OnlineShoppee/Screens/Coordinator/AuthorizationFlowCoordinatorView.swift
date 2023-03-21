@@ -11,6 +11,7 @@ struct AuthorizationFlowCoordinatorView: View {
     @ObservedObject var coordinator: AuthorizationFlowCoordinator
     var body: some View {
         SignUpCoordinatorView(coordinator: coordinator.signUpCoordinator)
+
     }
 }
 

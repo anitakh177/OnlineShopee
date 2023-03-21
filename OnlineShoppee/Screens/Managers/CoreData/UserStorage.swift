@@ -9,12 +9,13 @@ import Foundation
 import CoreData
 
 class UserStorage: ObservableObject {
+    static let shared = UserStorage()
     
     let container: NSPersistentContainer
     @Published var savedEntities: [UserEntity] = []
    
    
-    init() {
+   private init() {
         container = NSPersistentContainer(name: "UserModel")
         container.loadPersistentStores { description, error in
         }

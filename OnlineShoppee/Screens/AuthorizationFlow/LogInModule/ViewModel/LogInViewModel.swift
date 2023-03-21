@@ -13,15 +13,20 @@ enum Field: Hashable {
 
 final class LogInViewModel: ObservableObject {
     
-    unowned let coordinator: LogInCoordinator
-   
+    // MARK: Properties
+    
+    weak var coordinator: LogInCoordinator?
     var manager: RegistrationManager
     @Published var hasError: Bool = false
+    
+    // MARK: Init
     
     init(coordinator: LogInCoordinator, manager: RegistrationManager) {
         self.coordinator = coordinator
         self.manager = manager
     }
+    
+    // MARK: Internal Methods
     
     func validateLogIn(session: SessionManager) {
         manager.validateLogin()

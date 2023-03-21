@@ -11,11 +11,12 @@ struct SignUpCoordinatorView: View {
     @ObservedObject var coordinator: SignUpCoordinator
     var body: some View {
         NavigationView {
-            SignUpView(signupViewModel: coordinator.viewModel)
-    
-                .navigation(item: $coordinator.logInCoordinator) { coordinator in
-                    LogInCoordinatorView(coordinator: coordinator)
+            if let viewModel = coordinator.viewModel {
+                SignUpView(signupViewModel: viewModel)
+                    .navigation(item: $coordinator.logInCoordinator) { coordinator in
+                        LogInCoordinatorView(coordinator: coordinator)
                 }
+            }
         }
        
     }

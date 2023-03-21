@@ -10,36 +10,46 @@ import Combine
 
 @MainActor
 final class DetailPageViewModel: ObservableObject {
-    @Published var itemViewModel: ProductDetail?
+    
+    // MARK: Properties
+    
     @Published var productItem: ItemDetailModel?
     @Published var selectedImage: Int = 1
     
     private var cancellable: AnyCancellable?
-    private let productFetcher = ProductFetcher()
+    private let productFetcher: ProductFetcherProtocol
     
-    private unowned let coordinator: DetailPageCoordinator
+    private weak var coordinator: DetailPageCoordinator?
     private let willChangeTabTo: TabBarItem
     
-    init(coordinator: DetailPageCoordinator, willChangeTabTo: TabBarItem) {
+    // MARK: Init
+    
+    init(coordinator: DetailPageCoordinator, willChangeTabTo: TabBarItem, productFetcher: ProductFetcherProtocol) {
         self.coordinator = coordinator
         self.willChangeTabTo = willChangeTabTo
+        self.productFetcher = productFetcher
         
         fetchItems()
     }
+    // MARK: Internal Methods
     
     func changeTab() {
-        coordinator.changeTab(with: willChangeTabTo)
+        coordinator?.changeTab(with: willChangeTabTo)
     }
     
-   
-    
+}
+// MARK: Private Methods
+
+private extension DetailPageViewModel {
     func fetchItems() {
         cancellable = productFetcher.productDetail(.productDetails)
-                   .sink(receiveCompletion: { _ in },
-                   receiveValue: {
-                       self.productItem = $0
-                       self.itemViewModel =  ProductDetail(name: $0.name, description: $0.description, rating: "\($0.rating)", numberOfReviews: "(\($0.numberOfReviews)", price: "$\($0.price)", colors: $0.colors, imageUrls: $0.imageUrls)
+            .sink(receiveCompletion: { _ in },
+                  receiveValue: { [weak self] item in
+                guard let self = self else { return }
+                self.productItem = item
                 
-                   })
+                
+            })
     }
 }
+
